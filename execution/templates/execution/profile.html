@@ -5,14 +5,14 @@
     <title>Profile</title>
 </head>
 <body>
-<h1 align="center">Welcome {{ var }}</h1>
+<h1 align="center">Welcome {{ request.user.username }}</h1>
 <a href="/exe/dash/">Dashboard</a>
 <a href="/exe/logout/">Logout</a>
-<a href="/exe/red/">+</a>
+<a href="/exe/redirect_add/">+</a>
 
 <table>
     {% csrf_token %}
-{% for blog in whole %}
+{% for blog in data_queryset %}
     <tbody>
     <tr>
         <td>{{ blog.user_name }}</td>
@@ -27,7 +27,8 @@
         <td>{{ blog.pub_date }}</td>
     </tr>
     <td><a href="/exe/delete/{{ blog.id }}/">Delete</a></td>
-        <td><a href="/exe/edit/{{ blog.id }}/">Edit</a></td>
+    <td><a href="/exe/edit/{{ blog.id }}/">Edit</a></td>
+    <td><a href="/exe/publish/{{ blog.id }}/">Publish</a></td>
     <tr>
         <td><h1>.</h1></td>
     </tr>

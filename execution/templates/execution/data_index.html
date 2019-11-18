@@ -7,7 +7,7 @@
 <body>
 <h1 align="center">Welcome to the BLOG-Spot Dashboard</h1>
 <a href="/exe/logout/">Logout</a>
-<a href="/exe/red/">+</a>
+<a href="/exe/redirect_add/">+</a>
 <a href="/exe/profile/">My Posts</a>
 <h1> ??Blogs?? </h1>
 <table>
@@ -25,6 +25,9 @@
     </tr>
     <tr>
         <td>{{ blog.pub_date }}</td>
+    </tr>
+    <tr>
+        <td>{{ blog.creation_date }}</td>
     </tr>
     <tr>
         <td><h1>.</h1></td>

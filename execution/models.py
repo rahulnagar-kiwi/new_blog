@@ -15,10 +15,11 @@ class User(models.Model):
 class Data(models.Model):
 #    username = models.ForeignKey(User, on_delete=models.CASCADE)
     username = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-    pub_date = models.DateField(auto_now=True)
+    creation_date = models.DateField(auto_now=True)
+    pub_date = models.DateField(null=True, blank=True)
     blog_text = models.CharField(max_length=500, null=True, blank=True)
     blog_title = models.CharField(max_length=500, null=True, blank=True)
-
+    flag = models.BooleanField(default=False)
 
 
 
