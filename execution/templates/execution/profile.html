@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+<h1 align="center">Welcome {{ var }}</h1>
+<a href="/exe/dash/">Dashboard</a>
+<a href="/exe/logout/">Logout</a>
+<a href="/exe/red/">+</a>
+
+<table>
+    {% csrf_token %}
+{% for blog in whole %}
+    <tbody>
+    <tr>
+        <td>{{ blog.user_name }}</td>
+    </tr>
+    <tr>
+        <td>{{ blog.blog_title }}</td>
+    </tr>
+    <tr>
+        <td>{{ blog.blog_text }}</td>
+    </tr>
+    <tr>
+        <td>{{ blog.pub_date }}</td>
+    </tr>
+    <td><a href="/exe/delete/{{ blog.id }}/">Delete</a></td>
+        <td><a href="/exe/edit/{{ blog.id }}/">Edit</a></td>
+    <tr>
+        <td><h1>.</h1></td>
+    </tr>
+    </tbody>
+{% endfor %}
+</table>
+</body>
+</html>
