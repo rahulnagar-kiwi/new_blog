@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>checki</title>
+</head>
+<body>
+<table>
+{% for comment in data_queryset %}
+    <td>{{ comment.user_tag.username }}</td>
+    <td>{{ comment.tag_mod.name }}</td>
+{% endfor %}
+</table>
+</body>
+</html>

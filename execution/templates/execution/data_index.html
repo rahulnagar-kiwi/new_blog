@@ -6,37 +6,24 @@
 </head>
 <body>
 <h1 align="center">Welcome to the BLOG-Spot Dashboard</h1>
-<a href="/exe/logout/">Logout</a>
-<a href="/exe/redirect_add/">+</a>
-<a href="/exe/profile/">My Posts</a>
+<a href="/logout/">Logout</a>
+<a href="/redirect_add/">+</a>
+<a href="/profile/">My Posts</a>
 <h1> ??Blogs?? </h1>
 <table>
-    {% csrf_token %}
 {% for blog in data_queryset %}
-    <tbody>
-    <tr>
-        <td>{{ blog.username }}</td>
-    </tr>
-    <tr>
-        <td>{{ blog.blog_title }}</td>
-    </tr>
-    <tr>
-        <td>{{ blog.blog_text }}</td>
-    </tr>
-    <tr>
-        <td>{{ blog.pub_date }}</td>
-    </tr>
-    <tr>
-        <td>{{ blog.creation_date }}</td>
-    </tr>
-    <tr>
-        <td><h1>.</h1></td>
-    </tr>
-    </tbody>
-
-
+<tr>
+    <td>{{ blog.username }}</td>
+    <td>{{ blog.blog_title }}</td>
+    <td>{{ blog.blog_text }}</td>
+    <td>{{ blog.pub_date }}</td>
+    <td>{{ blog.creation_date }}</td>
+    {% for tag_obj in blog.tag_post_set.all %}
+    <td>{{ tag_obj.tag_mod.name }}</td>
+    {% endfor %}
+</tr>
 {% endfor %}
+</tbody>
 </table>
-
 </body>
 </html>

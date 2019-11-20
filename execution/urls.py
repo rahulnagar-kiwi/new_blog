@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from django.views.generic import TemplateView
+
 urlpatterns = [
     path('login/', views.Login, name='login'),
     path('add/', views.Add, name='add'),
@@ -15,6 +17,5 @@ urlpatterns = [
     path('delete/<id>/', views.delete, name='delete'),
     path('update/<id>/', views.update, name='update'),
     path('publish/<id>/', views.publish, name='publish'),
-
 ]
 

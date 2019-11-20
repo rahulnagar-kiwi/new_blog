@@ -6,10 +6,10 @@
 </head>
 <body>
 <h1 align="center">Update your Post here</h1>
-<a href="/exe/logout/">Logout</a>
-<a href="/exe/redirect_add/">+</a>
-<a href="/exe/profile/">My Posts</a>
-<form method="POST" action="/exe/update/{{ data_queryset.id }}/" >
+<a href="/logout/">Logout</a>
+<a href="/redirect_add/">+</a>
+<a href="/profile/">My Posts</a>
+<form method="POST" action="/update/{{ data_queryset.id }}/" >
     {% csrf_token %}
         <input type="text" name="blog_text" value="{{ data_queryset.blog_text }}">
         <input type="text" name="blog_title" value="{{ data_queryset.blog_title }}">

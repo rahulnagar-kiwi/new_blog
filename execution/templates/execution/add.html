@@ -6,18 +6,24 @@
 </head>
 <body>
 <h1 align="center">Enter Your Blog</h1>
-<a href="/exe/logout/">Logout</a>
-<a href="/exe/redirect_add/">+</a>
-<a href="/exe/profile/">My Posts</a>
-<form method="POST" action="/exe/add/" >
+<a href="/logout/">Logout</a>
+<a href="/redirect_add/">+</a>
+<a href="/profile/">My Posts</a>
+<form method="POST" action="/add/" >
     {% csrf_token %}
    <table>
     <td>Enter Blog Title</td>
     <td><input type="text" name="blog_title"></td>
     <td>Enter Blog Text</td>
     <td><input type="text" name="blog_text"></td>
-    <td><input type="submit" value="create"></td>
-   </table>
+    <select name="check_val" multiple >
+      {% for obj in t_obj %}
+        <option value = {{ obj.id }}>{{ obj.name }}</option>
+      {% endfor %}
+   </select>
+   <td><input type="submit" value="create"></td>
+
+    </table>
 </form>
 </body>
 </html>

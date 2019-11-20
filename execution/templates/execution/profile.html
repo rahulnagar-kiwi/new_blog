@@ -6,32 +6,24 @@
 </head>
 <body>
 <h1 align="center">Welcome {{ request.user.username }}</h1>
-<a href="/exe/dash/">Dashboard</a>
-<a href="/exe/logout/">Logout</a>
-<a href="/exe/redirect_add/">+</a>
+<a href="/dash/">Dashboard</a>
+<a href="/logout/">Logout</a>
+<a href="/redirect_add/">+</a>
 
 <table>
     {% csrf_token %}
 {% for blog in data_queryset %}
     <tbody>
-    <tr>
         <td>{{ blog.user_name }}</td>
-    </tr>
-    <tr>
         <td>{{ blog.blog_title }}</td>
-    </tr>
-    <tr>
         <td>{{ blog.blog_text }}</td>
-    </tr>
-    <tr>
-        <td>{{ blog.pub_date }}</td>
-    </tr>
-    <td><a href="/exe/delete/{{ blog.id }}/">Delete</a></td>
-    <td><a href="/exe/edit/{{ blog.id }}/">Edit</a></td>
-    <td><a href="/exe/publish/{{ blog.id }}/">Publish</a></td>
-    <tr>
-        <td><h1>.</h1></td>
-    </tr>
+        <td>{{ blog.creation_date }}</td>
+        {% for tag_obj in blog.tag_post_set.all %}
+        <td>{{ tag_obj.tag_mod.name }}</td>
+        {% endfor %}
+       <td><a href="/delete/{{ blog.id }}/">Delete</a></td>
+    <td><a href="/edit/{{ blog.id }}/">Edit</a></td>
+    <td><a href="/publish/{{ blog.id }}/">Publish</a></td>
     </tbody>
 {% endfor %}
 </table>

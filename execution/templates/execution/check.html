@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check</title>
+</head>
+<body>
+<!--
+{% for comment in data_queryset.user_tag.all %}
+    <p>{{ comment.username }}</p>
+{% endfor %}
+-->
+<table>
+<form method="POST" action="/tag/">
+   {% csrf_token %}
+    <select name="check_val" multiple >
+      {% for obj in data_queryset %}
+        <option value = {{ obj.id }}>{{ obj.name }}</option>
+      {% endfor %}
+   </select>
+     <tr><input type="submit" value="create"></tr>
+</form>
+</table>
+</body>
+</html>
