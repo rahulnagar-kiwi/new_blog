@@ -11,10 +11,16 @@
 <a href="/redirect_add/">+</a>
 
 <table>
+    <tr>
+        <th>Blog Title</th>
+        <th>Blog Description</th>
+        <th>Blog Creation Date</th>
+        <th>Tags</th>
+        <th>Actions</th>
+    </tr>
     {% csrf_token %}
 {% for blog in data_queryset %}
     <tbody>
-        <td>{{ blog.user_name }}</td>
         <td>{{ blog.blog_title }}</td>
         <td>{{ blog.blog_text }}</td>
         <td>{{ blog.creation_date }}</td>

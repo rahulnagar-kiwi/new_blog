@@ -11,6 +11,14 @@
 <a href="/profile/">My Posts</a>
 <h1> ??Blogs?? </h1>
 <table>
+    <tr>
+        <th>Username</th>
+        <th>Blog Title</th>
+        <th>Blog Description</th>
+        <th>Publishing Date</th>
+        <th>Blog Creation Date</th>
+        <th>Tags</th>
+    </tr>
 {% for blog in data_queryset %}
 <tr>
     <td>{{ blog.username }}</td>

@@ -69,7 +69,7 @@ def redirect_add(request):
 
 def my_profile(request):
         user_ref = request.user
-        data_queryset = Data.objects.filter(username=user_ref)
+        data_queryset = Data.objects.filter(username=user_ref).order_by('-creation_date')
 
         t_obj = Tag_Post.objects.all()
         context = {
